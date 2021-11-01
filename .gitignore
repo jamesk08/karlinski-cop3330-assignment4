@@ -23,4 +23,6 @@
 hs_err_pid*
 /.gradle/
 /build/
+/TodoLists/
+/TodoLists/*.txt
 /.idea/workspace.xml

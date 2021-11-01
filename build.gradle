@@ -7,11 +7,10 @@ plugins {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 16
-mainClassName = 'ucf.assignments.TodoListApp'
+mainClassName = 'ucf.assignments.Startup'
 
 javafx {
-    version = "16"
+    version = "17"
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
