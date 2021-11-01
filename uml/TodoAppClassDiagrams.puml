@@ -1,0 +1,91 @@
+@startuml
+class ucf.assignments.Todo
+{
+    - int todoId
+    - String description
+    - String dueDate
+    - String status
+    + int getTodoId()
+    + int getTodoIndex()
+    + String getDescription()
+    + String getDueDate()
+    + String getStatus()
+    + void setDescription(String)
+    + void setDueDate(String)
+    + void setStatus(String)
+}
+
+class ucf.assignments.TodoList
+{
+    - String title
+    - ArrayList<Todo> todos
+    - int todoListId
+    + int getTodoListId()
+    + int getTodoListIndex()
+    + String getTitle()
+    + ArrayList<Todo> getTodos()
+    + void setTitle(String)
+    + void addTodos(Todo)
+}
+
+
+class ucf.assignments.MainController
+{
+    + TableColumn<TodoList,String> title
+    + TableColumn<TodoList,String> description
+    + TableColumn<TodoList,String> dueDate
+    + TableColumn<TodoList,String> status
+    + String getTodoListFilePath(TodoList)
+    + void initialize(URL,ResourceBundle)
+    + void loadTodoLists(int)
+    + void loadTodos()
+    - void setupTodoListTable()
+    - void setupTodoTable()
+    - void addTodoList(ActionEvent)
+    - void addTodo(ActionEvent)
+    - void deleteSelectedTodoList(ActionEvent)
+    - void deleteSelectedTodo(ActionEvent)
+    - void openEditListWindow(ActionEvent)
+    - void openEditTodoWindow(ActionEvent)
+    - void openWindow(String,String,Todo)
+}
+
+class ucf.assignments.EditListController
+{
+    - TextField listTitle
+    + TodoList selectedTodoList
+    - void editList(ActionEvent)
+    + void initialize(URL,ResourceBundle)
+    + void setupFields(TodoList)
+}
+
+class ucf.assignments.EditTodoController
+{
+    - TextField todoDescription
+    - DatePicker todoDueDate
+    - ComboBox<String> comboStatusOptions
+    + Todo selectedTodo
+    + TodoList selectedTodoList
+    + void initialize(URL,ResourceBundle)
+    + void setupFields(Todo,TodoList)
+    - void saveTodo(ActionEvent)
+}
+
+class ucf.assignments.TodoManager
+{
+    + ObservableList<Todo> getTodos(ArrayList<Todo>)
+}
+
+class ucf.assignments.DialogManager
+{
+    + void displayInfo(String,String)
+    + void displayError(String,String)
+}
+
+class ucf.assignments.TodoListManager
+{
+    + ObservableList<TodoList> loadAllTodoListsFromStorage()
+    - TodoList retrieveLists(String)
+    + String getTodoListFilePath(String)
+}
+@enduml

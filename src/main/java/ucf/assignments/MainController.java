@@ -14,10 +14,10 @@ import javafx.scene.control.*;
 
 public class MainController implements Initializable
 {
-    @FXML TableColumn<TodoList, String> title;
-    @FXML TableColumn<TodoList, String> description;
-    @FXML TableColumn<TodoList, String> dueDate;
-    @FXML TableColumn<TodoList, String> status;
+    @FXML public TableColumn<TodoList, String> title;
+    @FXML public TableColumn<TodoList, String> description;
+    @FXML public TableColumn<TodoList, String> dueDate;
+    @FXML public TableColumn<TodoList, String> status;
 
     @Override public void initialize(URL url, ResourceBundle rb)
     {
@@ -26,7 +26,6 @@ public class MainController implements Initializable
         // load todo list from storage
 
         // setup todo table columns
-        setupTodoTable();
     }
 
     public String getTodoListFilePath(TodoList todoList)

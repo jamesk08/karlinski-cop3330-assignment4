@@ -9,8 +9,6 @@ import javafx.collections.ObservableList;
 
 public class TodoListManager
 {
-    private static final String TODO_LIST_STORAGE_PATH = "TodoLists";
-
     public ObservableList<TodoList> loadAllTodoListsFromStorage()
     {
         // initialize an array list to store todo lists that were loaded from files
